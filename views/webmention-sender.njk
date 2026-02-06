@@ -1,0 +1,52 @@
+{% extends "document.njk" %}
+
+{% block content %}
+  <div class="summary">
+    <div class="summary__item">
+      <span class="summary__value">{{ pending }}</span>
+      <span class="summary__label">{{ __("webmention-sender.pending.title") }}</span>
+    </div>
+    <div class="summary__item">
+      <span class="summary__value">{{ sent }}</span>
+      <span class="summary__label">{{ __("webmention-sender.sent.title") }}</span>
+    </div>
+  </div>
+
+  {{ prose({ text: __("webmention-sender.description") }) }}
+
+  {% if results and results.length > 0 %}
+  <section>
+    <h2>Recent Results</h2>
+    <ul class="card-list">
+      {% for result in results %}
+      <li class="card">
+        <h3 class="card__title">
+          <a href="{{ result.url }}" target="_blank" rel="noopener">{{ result.url | truncate(60) }}</a>
+        </h3>
+        <div class="card__meta">
+          {% if result.sent > 0 %}
+          {{ badge({ color: "green", text: result.sent ~ " sent" }) }}
+          {% endif %}
+          {% if result.failed > 0 %}
+          {{ badge({ color: "red", text: result.failed ~ " failed" }) }}
+          {% endif %}
+          {% if result.skipped > 0 %}
+          {{ badge({ color: "gray", text: result.skipped ~ " skipped" }) }}
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section>
+    <h2>{{ __("webmention-sender.help.title") }}</h2>
+    <ol class="prose">
+      <li>{{ __("webmention-sender.help.step1") }}</li>
+      <li>{{ __("webmention-sender.help.step2") }}</li>
+      <li>{{ __("webmention-sender.help.step3") }}</li>
+      <li>{{ __("webmention-sender.help.step4") }}</li>
+    </ol>
+  </section>
+{% endblock %}

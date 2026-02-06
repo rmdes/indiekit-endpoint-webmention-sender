@@ -1,6 +1,10 @@
 import express from "express";
 import { webmentionSenderController } from "./lib/controllers/webmention-sender.js";
 
+// Module-level routers (matching Indiekit's endpoint pattern)
+const protectedRouter = express.Router();
+const publicRouter = express.Router();
+
 const defaults = {
   mountPath: "/webmention-sender",
   // How long to wait for endpoint discovery (ms)
@@ -8,8 +12,6 @@ const defaults = {
   // User agent for requests
   userAgent: "Indiekit Webmention Sender (https://getindiekit.com)",
 };
-
-const router = express.Router();
 
 export default class WebmentionSenderEndpoint {
   name = "Webmention sender endpoint";
@@ -23,27 +25,38 @@ export default class WebmentionSenderEndpoint {
     return {
       href: this.options.mountPath,
       text: "webmention-sender.title",
+      requiresDatabase: true,
     };
   }
 
+  /**
+   * Protected routes (require authentication)
+   * Dashboard page in Indiekit admin UI
+   */
+  get routes() {
+    protectedRouter.get("/", webmentionSenderController.get);
+    return protectedRouter;
+  }
+
+  /**
+   * Public routes (no authentication for GET, token auth for POST)
+   * API endpoints for background polling
+   */
   get routesPublic() {
-    router.post(
-      "/",
-      webmentionSenderController.post(this.options)
-    );
+    // JSON API for status
+    publicRouter.get("/api/status", webmentionSenderController.status);
 
-    router.get(
-      "/",
-      webmentionSenderController.get(this.options)
-    );
+    // POST endpoint for sending webmentions (requires token auth)
+    publicRouter.post("/", webmentionSenderController.post);
 
-    return router;
+    return publicRouter;
   }
 
   init(Indiekit) {
     Indiekit.addEndpoint(this);
 
-    // Register path for other plugins to find
+    // Store config in application for controller access
+    Indiekit.config.application.webmentionSenderConfig = this.options;
     Indiekit.config.application._webmentionSenderPath = this.options.mountPath;
   }
 }

@@ -1,12 +1,14 @@
 {
   "name": "@rmdes/indiekit-endpoint-webmention-sender",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Webmention sender endpoint for Indiekit. Automatically discovers and sends webmentions for published posts.",
   "type": "module",
   "main": "index.js",
   "files": [
     "index.js",
-    "lib"
+    "lib",
+    "locales",
+    "views"
   ],
   "keywords": [
     "indiekit",

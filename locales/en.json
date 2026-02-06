@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Send webmentions to sites you link to in your posts.",
+    "pending": {
+      "title": "Pending",
+      "description": "Posts that haven't had webmentions sent yet"
+    },
+    "sent": {
+      "title": "Sent",
+      "description": "Posts that have had webmentions processed"
+    },
+    "actions": {
+      "send": "Send webmentions",
+      "sendAll": "Process all pending"
+    },
+    "status": {
+      "processing": "Processing webmentions...",
+      "success": "Webmentions sent successfully",
+      "error": "Error sending webmentions"
+    },
+    "help": {
+      "title": "How it works",
+      "step1": "When you publish a post with external links, it's added to the pending queue",
+      "step2": "The background process runs every 5 minutes to send webmentions",
+      "step3": "For each link, we discover the webmention endpoint and send a notification",
+      "step4": "Once processed, the post is marked as sent"
+    }
+  }
+}
