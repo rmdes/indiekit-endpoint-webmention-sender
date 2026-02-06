@@ -1,0 +1,39 @@
+{
+  "name": "@rmdes/indiekit-endpoint-webmention-sender",
+  "version": "1.0.0",
+  "description": "Webmention sender endpoint for Indiekit. Automatically discovers and sends webmentions for published posts.",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "keywords": [
+    "indiekit",
+    "indiekit-plugin",
+    "webmention",
+    "indieweb"
+  ],
+  "author": "rmdes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rmdes/indiekit-endpoint-webmention-sender.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rmdes/indiekit-endpoint-webmention-sender/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-fetch": "^3.3.2"
+  },
+  "peerDependencies": {
+    "@indiekit/indiekit": "1.0.0-beta.25"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
