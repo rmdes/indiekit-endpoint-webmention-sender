@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Senden Sie Webmentions an Websites, auf die Sie in Ihren Beiträgen verlinken.",
+    "pending": {
+      "title": "Ausstehend",
+      "description": "Beiträge, für die noch keine Webmentions gesendet wurden"
+    },
+    "sent": {
+      "title": "Gesendet",
+      "description": "Beiträge, für die Webmentions verarbeitet wurden"
+    },
+    "actions": {
+      "send": "Webmentions senden",
+      "sendAll": "Alle ausstehenden verarbeiten"
+    },
+    "status": {
+      "processing": "Verarbeite Webmentions...",
+      "success": "Webmentions erfolgreich gesendet",
+      "error": "Fehler beim Senden von Webmentions"
+    },
+    "help": {
+      "title": "So funktioniert es",
+      "step1": "Wenn Sie einen Beitrag mit externen Links veröffentlichen, wird er zur ausstehenden Warteschlange hinzugefügt",
+      "step2": "Der Hintergrundprozess läuft alle 5 Minuten, um Webmentions zu senden",
+      "step3": "Für jeden Link entdecken wir den Webmention-Endpunkt und senden eine Benachrichtigung",
+      "step4": "Nach der Verarbeitung wird der Beitrag als gesendet markiert"
+    }
+  }
+}

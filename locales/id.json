@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Kirim webmention ke situs yang Anda tautkan di postingan Anda.",
+    "pending": {
+      "title": "Tertunda",
+      "description": "Postingan yang belum mengirim webmention"
+    },
+    "sent": {
+      "title": "Terkirim",
+      "description": "Postingan yang telah memproses webmention"
+    },
+    "actions": {
+      "send": "Kirim webmention",
+      "sendAll": "Proses semua yang tertunda"
+    },
+    "status": {
+      "processing": "Memproses webmention...",
+      "success": "Webmention berhasil dikirim",
+      "error": "Kesalahan saat mengirim webmention"
+    },
+    "help": {
+      "title": "Cara kerjanya",
+      "step1": "Ketika Anda menerbitkan postingan dengan tautan eksternal, postingan ditambahkan ke antrean tertunda",
+      "step2": "Proses latar belakang berjalan setiap 5 menit untuk mengirim webmention",
+      "step3": "Untuk setiap tautan, kami menemukan endpoint webmention dan mengirim notifikasi",
+      "step4": "Setelah diproses, postingan ditandai sebagai terkirim"
+    }
+  }
+}

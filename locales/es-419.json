@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Enviá webmentions a los sitios que enlazás en tus publicaciones.",
+    "pending": {
+      "title": "Pendientes",
+      "description": "Publicaciones que todavía no enviaron webmentions"
+    },
+    "sent": {
+      "title": "Enviadas",
+      "description": "Publicaciones que ya procesaron webmentions"
+    },
+    "actions": {
+      "send": "Enviar webmentions",
+      "sendAll": "Procesar todas las pendientes"
+    },
+    "status": {
+      "processing": "Procesando webmentions...",
+      "success": "Webmentions enviados exitosamente",
+      "error": "Error al enviar webmentions"
+    },
+    "help": {
+      "title": "Cómo funciona",
+      "step1": "Cuando publicás una entrada con enlaces externos, se agrega a la cola de pendientes",
+      "step2": "El proceso en segundo plano se ejecuta cada 5 minutos para enviar webmentions",
+      "step3": "Para cada enlace, descubrimos el endpoint de webmention y enviamos una notificación",
+      "step4": "Una vez procesada, la publicación se marca como enviada"
+    }
+  }
+}

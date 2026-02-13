@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Invia webmention ai siti che colleghi nei tuoi post.",
+    "pending": {
+      "title": "In sospeso",
+      "description": "Post che non hanno ancora inviato webmention"
+    },
+    "sent": {
+      "title": "Inviati",
+      "description": "Post che hanno elaborato webmention"
+    },
+    "actions": {
+      "send": "Invia webmention",
+      "sendAll": "Elabora tutti in sospeso"
+    },
+    "status": {
+      "processing": "Elaborazione webmention...",
+      "success": "Webmention inviati con successo",
+      "error": "Errore nell'invio dei webmention"
+    },
+    "help": {
+      "title": "Come funziona",
+      "step1": "Quando pubblichi un post con collegamenti esterni, viene aggiunto alla coda in sospeso",
+      "step2": "Il processo in background viene eseguito ogni 5 minuti per inviare webmention",
+      "step3": "Per ogni collegamento, scopriamo l'endpoint webmention e inviamo una notifica",
+      "step4": "Una volta elaborato, il post viene contrassegnato come inviato"
+    }
+  }
+}

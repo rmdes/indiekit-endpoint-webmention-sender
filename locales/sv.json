@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Skicka webmentions till webbplatser du länkar till i dina inlägg.",
+    "pending": {
+      "title": "Väntande",
+      "description": "Inlägg som ännu inte har skickat webmentions"
+    },
+    "sent": {
+      "title": "Skickade",
+      "description": "Inlägg som har bearbetat webmentions"
+    },
+    "actions": {
+      "send": "Skicka webmentions",
+      "sendAll": "Bearbeta alla väntande"
+    },
+    "status": {
+      "processing": "Bearbetar webmentions...",
+      "success": "Webmentions skickades framgångsrikt",
+      "error": "Fel vid skickande av webmentions"
+    },
+    "help": {
+      "title": "Hur det fungerar",
+      "step1": "När du publicerar ett inlägg med externa länkar läggs det till i den väntande kön",
+      "step2": "Bakgrundsprocessen körs var 5:e minut för att skicka webmentions",
+      "step3": "För varje länk upptäcker vi webmention-slutpunkten och skickar en notifikation",
+      "step4": "Efter bearbetning markeras inlägget som skickat"
+    }
+  }
+}

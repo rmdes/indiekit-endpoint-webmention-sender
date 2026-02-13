@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Шаљите webmention-е сајтовима које повезујете у вашим објавама.",
+    "pending": {
+      "title": "На чекању",
+      "description": "Објаве које још нису послале webmention-е"
+    },
+    "sent": {
+      "title": "Послато",
+      "description": "Објаве које су обрадиле webmention-е"
+    },
+    "actions": {
+      "send": "Пошаљи webmention-е",
+      "sendAll": "Обради све на чекању"
+    },
+    "status": {
+      "processing": "Обрада webmention-а...",
+      "success": "Webmention-и успешно послати",
+      "error": "Грешка при слању webmention-а"
+    },
+    "help": {
+      "title": "Како функционише",
+      "step1": "Када објавите објаву са спољним везама, додаје се у ред за чекање",
+      "step2": "Процес у позадини се покреће сваких 5 минута да пошаље webmention-е",
+      "step3": "За сваку везу, откривамо webmention крајњу тачку и шаљемо обавештење",
+      "step4": "Након обраде, објава се означава као послата"
+    }
+  }
+}

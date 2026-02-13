@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Stuur webmentions naar sites die je linkt in je berichten.",
+    "pending": {
+      "title": "In behandeling",
+      "description": "Berichten die nog geen webmentions hebben verzonden"
+    },
+    "sent": {
+      "title": "Verzonden",
+      "description": "Berichten die webmentions hebben verwerkt"
+    },
+    "actions": {
+      "send": "Webmentions verzenden",
+      "sendAll": "Verwerk alle in behandeling"
+    },
+    "status": {
+      "processing": "Webmentions verwerken...",
+      "success": "Webmentions succesvol verzonden",
+      "error": "Fout bij het verzenden van webmentions"
+    },
+    "help": {
+      "title": "Hoe het werkt",
+      "step1": "Wanneer je een bericht met externe links publiceert, wordt het toegevoegd aan de wachtrij",
+      "step2": "Het achtergrondproces draait elke 5 minuten om webmentions te verzenden",
+      "step3": "Voor elke link ontdekken we het webmention-eindpunt en sturen we een notificatie",
+      "step4": "Na verwerking wordt het bericht gemarkeerd als verzonden"
+    }
+  }
+}

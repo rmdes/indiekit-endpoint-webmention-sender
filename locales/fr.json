@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Envoyez des webmentions aux sites que vous liez dans vos publications.",
+    "pending": {
+      "title": "En attente",
+      "description": "Publications qui n'ont pas encore envoyé de webmentions"
+    },
+    "sent": {
+      "title": "Envoyées",
+      "description": "Publications qui ont traité les webmentions"
+    },
+    "actions": {
+      "send": "Envoyer les webmentions",
+      "sendAll": "Traiter toutes les en attente"
+    },
+    "status": {
+      "processing": "Traitement des webmentions...",
+      "success": "Webmentions envoyés avec succès",
+      "error": "Erreur lors de l'envoi des webmentions"
+    },
+    "help": {
+      "title": "Comment ça marche",
+      "step1": "Lorsque vous publiez une publication avec des liens externes, elle est ajoutée à la file d'attente",
+      "step2": "Le processus en arrière-plan s'exécute toutes les 5 minutes pour envoyer les webmentions",
+      "step3": "Pour chaque lien, nous découvrons le point de terminaison webmention et envoyons une notification",
+      "step4": "Une fois traitée, la publication est marquée comme envoyée"
+    }
+  }
+}

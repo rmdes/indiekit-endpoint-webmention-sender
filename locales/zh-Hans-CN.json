@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "向您在文章中链接的网站发送 webmention。",
+    "pending": {
+      "title": "待处理",
+      "description": "尚未发送 webmention 的文章"
+    },
+    "sent": {
+      "title": "已发送",
+      "description": "已处理 webmention 的文章"
+    },
+    "actions": {
+      "send": "发送 webmention",
+      "sendAll": "处理所有待处理"
+    },
+    "status": {
+      "processing": "正在处理 webmention...",
+      "success": "Webmention 发送成功",
+      "error": "发送 webmention 时出错"
+    },
+    "help": {
+      "title": "工作原理",
+      "step1": "当您发布包含外部链接的文章时，它会被添加到待处理队列",
+      "step2": "后台进程每 5 分钟运行一次以发送 webmention",
+      "step3": "对于每个链接，我们发现 webmention 端点并发送通知",
+      "step4": "处理完成后，文章将标记为已发送"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "webmention-sender": {
+    "title": "Webmention Sender",
+    "description": "Wysyłaj webmentions do stron, które linkujesz w swoich postach.",
+    "pending": {
+      "title": "Oczekujące",
+      "description": "Posty, które jeszcze nie wysłały webmentions"
+    },
+    "sent": {
+      "title": "Wysłane",
+      "description": "Posty, które przetworzyły webmentions"
+    },
+    "actions": {
+      "send": "Wyślij webmentions",
+      "sendAll": "Przetwórz wszystkie oczekujące"
+    },
+    "status": {
+      "processing": "Przetwarzanie webmentions...",
+      "success": "Webmentions wysłane pomyślnie",
+      "error": "Błąd podczas wysyłania webmentions"
+    },
+    "help": {
+      "title": "Jak to działa",
+      "step1": "Kiedy publikujesz post z zewnętrznymi linkami, jest dodawany do kolejki oczekujących",
+      "step2": "Proces w tle działa co 5 minut, aby wysłać webmentions",
+      "step3": "Dla każdego linku odkrywamy punkt końcowy webmention i wysyłamy powiadomienie",
+      "step4": "Po przetworzeniu post jest oznaczany jako wysłany"
+    }
+  }
+}
