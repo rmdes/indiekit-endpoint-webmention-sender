@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 import express from "express";
 import { webmentionSenderController } from "./lib/controllers/webmention-sender.js";
 
@@ -19,6 +21,10 @@ export default class WebmentionSenderEndpoint {
   constructor(options = {}) {
     this.options = { ...defaults, ...options };
     this.mountPath = this.options.mountPath;
+  }
+
+  get localesDirectory() {
+    return path.join(path.dirname(fileURLToPath(import.meta.url)), "locales");
   }
 
   get navigationItems() {
