@@ -19,6 +19,20 @@
       "success": "Webmentions enviados com sucesso",
       "error": "Erro ao enviar webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Como funciona",
       "step1": "Quando publica uma publicação com ligações externas, é adicionada à fila de pendentes",

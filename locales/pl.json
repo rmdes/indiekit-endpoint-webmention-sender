@@ -19,6 +19,20 @@
       "success": "Webmentions wysłane pomyślnie",
       "error": "Błąd podczas wysyłania webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Jak to działa",
       "step1": "Kiedy publikujesz post z zewnętrznymi linkami, jest dodawany do kolejki oczekujących",

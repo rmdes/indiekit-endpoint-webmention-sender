@@ -19,6 +19,20 @@
       "success": "Webmentions erfolgreich gesendet",
       "error": "Fehler beim Senden von Webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "So funktioniert es",
       "step1": "Wenn Sie einen Beitrag mit externen Links veröffentlichen, wird er zur ausstehenden Warteschlange hinzugefügt",

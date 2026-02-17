@@ -19,6 +19,20 @@
       "success": "Webmentions sent successfully",
       "error": "Error sending webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "How it works",
       "step1": "When you publish a post with external links, it's added to the pending queue",

@@ -15,25 +15,119 @@
   {{ prose({ text: __("webmention-sender.description") }) }}
 
   {% if results and results.length > 0 %}
+  <style>
+    .wm-results { list-style: none; padding: 0; margin: 0; }
+    .wm-results > li { border: 1px solid var(--color-border, #ddd); border-radius: 0.5rem; margin-block-end: 0.75rem; }
+    .wm-results details { padding: 0; }
+    .wm-results summary { cursor: pointer; padding: 0.75rem 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+    .wm-results summary::-webkit-details-marker { display: none; }
+    .wm-results summary::before { content: "\25B6"; font-size: 0.65em; transition: transform 0.15s; margin-inline-end: 0.25rem; }
+    .wm-results details[open] summary::before { transform: rotate(90deg); }
+    .wm-results .wm-url { font-weight: 600; word-break: break-all; flex: 1 1 auto; min-width: 0; }
+    .wm-results .wm-time { color: var(--color-text-muted, #666); font-size: 0.85em; margin-inline-start: auto; white-space: nowrap; }
+    .wm-detail-body { padding: 0 1rem 1rem; border-top: 1px solid var(--color-border, #ddd); }
+    .wm-detail-body h4 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; margin: 1rem 0 0.5rem; }
+    .wm-detail-body h4:first-child { margin-top: 0.5rem; }
+    .wm-detail-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-block-end: 0.5rem; }
+    .wm-detail-table th { text-align: left; padding: 0.35rem 0.5rem; background: var(--color-offset, #f5f5f5); border-bottom: 1px solid var(--color-border, #ddd); }
+    .wm-detail-table td { padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--color-border, #eee); word-break: break-all; }
+    .wm-no-details { color: var(--color-text-muted, #666); font-style: italic; padding: 0.5rem 0; font-size: 0.85em; }
+  </style>
   <section>
-    <h2>Recent Results</h2>
-    <ul class="card-list">
+    <h2>{{ __("webmention-sender.results.title") }}</h2>
+    <ul class="wm-results">
       {% for result in results %}
-      <li class="card">
-        <h3 class="card__title">
-          <a href="{{ result.url }}" target="_blank" rel="noopener">{{ result.url | truncate(60) }}</a>
-        </h3>
-        <div class="card__meta">
-          {% if result.sent > 0 %}
-          {{ badge({ color: "green", text: result.sent ~ " sent" }) }}
-          {% endif %}
-          {% if result.failed > 0 %}
-          {{ badge({ color: "red", text: result.failed ~ " failed" }) }}
-          {% endif %}
-          {% if result.skipped > 0 %}
-          {{ badge({ color: "gray", text: result.skipped ~ " skipped" }) }}
-          {% endif %}
-        </div>
+      <li>
+        <details>
+          <summary>
+            <span class="wm-url"><a href="{{ result.url }}" target="_blank" rel="noopener">{{ result.url | truncate(60) }}</a></span>
+            {% if result.sent > 0 %}
+            {{ badge({ color: "green", text: result.sent ~ " " ~ __("webmention-sender.results.sentLabel") }) }}
+            {% endif %}
+            {% if result.failed > 0 %}
+            {{ badge({ color: "red", text: result.failed ~ " " ~ __("webmention-sender.results.failedLabel") }) }}
+            {% endif %}
+            {% if result.skipped > 0 %}
+            {{ badge({ color: "gray", text: result.skipped ~ " " ~ __("webmention-sender.results.skippedLabel") }) }}
+            {% endif %}
+            {% if result.timestamp %}
+            <span class="wm-time">{{ result.timestamp | date("PPp") }}</span>
+            {% endif %}
+          </summary>
+          <div class="wm-detail-body">
+            {% if result.details %}
+              {% if result.details.sent and result.details.sent.length > 0 %}
+              <h4 style="color: var(--color-green, green);">{{ __("webmention-sender.results.sentLabel") }} ({{ result.details.sent.length }})</h4>
+              <table class="wm-detail-table">
+                <thead>
+                  <tr>
+                    <th>{{ __("webmention-sender.results.target") }}</th>
+                    <th>{{ __("webmention-sender.results.endpoint") }}</th>
+                    <th>{{ __("webmention-sender.results.protocol") }}</th>
+                    <th>{{ __("webmention-sender.results.httpStatus") }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in result.details.sent %}
+                  <tr>
+                    <td><a href="{{ item.target }}" target="_blank" rel="noopener">{{ item.target | truncate(50) }}</a></td>
+                    <td>{{ item.endpoint | truncate(50) }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.status }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% endif %}
+
+              {% if result.details.failed and result.details.failed.length > 0 %}
+              <h4 style="color: var(--color-red, red);">{{ __("webmention-sender.results.failedLabel") }} ({{ result.details.failed.length }})</h4>
+              <table class="wm-detail-table">
+                <thead>
+                  <tr>
+                    <th>{{ __("webmention-sender.results.target") }}</th>
+                    <th>{{ __("webmention-sender.results.endpoint") }}</th>
+                    <th>{{ __("webmention-sender.results.protocol") }}</th>
+                    <th>{{ __("webmention-sender.results.error") }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in result.details.failed %}
+                  <tr>
+                    <td><a href="{{ item.target }}" target="_blank" rel="noopener">{{ item.target | truncate(50) }}</a></td>
+                    <td>{{ item.endpoint | truncate(50) }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.error }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% endif %}
+
+              {% if result.details.skipped and result.details.skipped.length > 0 %}
+              <h4 style="color: var(--color-text-muted, gray);">{{ __("webmention-sender.results.skippedLabel") }} ({{ result.details.skipped.length }})</h4>
+              <table class="wm-detail-table">
+                <thead>
+                  <tr>
+                    <th>{{ __("webmention-sender.results.target") }}</th>
+                    <th>{{ __("webmention-sender.results.reason") }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in result.details.skipped %}
+                  <tr>
+                    <td><a href="{{ item.target }}" target="_blank" rel="noopener">{{ item.target | truncate(50) }}</a></td>
+                    <td>{{ item.reason }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% endif %}
+            {% else %}
+              <p class="wm-no-details">{{ __("webmention-sender.results.noDetails") }}</p>
+            {% endif %}
+          </div>
+        </details>
       </li>
       {% endfor %}
     </ul>

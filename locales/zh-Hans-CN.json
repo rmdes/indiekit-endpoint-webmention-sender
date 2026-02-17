@@ -19,6 +19,20 @@
       "success": "Webmention 发送成功",
       "error": "发送 webmention 时出错"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "工作原理",
       "step1": "当您发布包含外部链接的文章时，它会被添加到待处理队列",

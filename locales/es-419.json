@@ -19,6 +19,20 @@
       "success": "Webmentions enviados exitosamente",
       "error": "Error al enviar webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Cómo funciona",
       "step1": "Cuando publicás una entrada con enlaces externos, se agrega a la cola de pendientes",

@@ -19,6 +19,20 @@
       "success": "Webmention सफलतापूर्वक भेजे गए",
       "error": "Webmention भेजने में त्रुटि"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "यह कैसे काम करता है",
       "step1": "जब आप बाहरी लिंक वाली पोस्ट प्रकाशित करते हैं, तो वह लंबित कतार में जोड़ी जाती है",

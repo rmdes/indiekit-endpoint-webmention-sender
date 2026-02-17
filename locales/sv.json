@@ -19,6 +19,20 @@
       "success": "Webmentions skickades framgångsrikt",
       "error": "Fel vid skickande av webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Hur det fungerar",
       "step1": "När du publicerar ett inlägg med externa länkar läggs det till i den väntande kön",

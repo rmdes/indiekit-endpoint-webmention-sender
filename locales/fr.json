@@ -19,6 +19,20 @@
       "success": "Webmentions envoyés avec succès",
       "error": "Erreur lors de l'envoi des webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Comment ça marche",
       "step1": "Lorsque vous publiez une publication avec des liens externes, elle est ajoutée à la file d'attente",

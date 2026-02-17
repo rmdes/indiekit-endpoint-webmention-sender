@@ -19,6 +19,20 @@
       "success": "Webmention-и успешно послати",
       "error": "Грешка при слању webmention-а"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Како функционише",
       "step1": "Када објавите објаву са спољним везама, додаје се у ред за чекање",

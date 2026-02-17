@@ -19,6 +19,20 @@
       "success": "Webmention berhasil dikirim",
       "error": "Kesalahan saat mengirim webmention"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Cara kerjanya",
       "step1": "Ketika Anda menerbitkan postingan dengan tautan eksternal, postingan ditambahkan ke antrean tertunda",

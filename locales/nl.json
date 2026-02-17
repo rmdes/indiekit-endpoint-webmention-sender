@@ -19,6 +19,20 @@
       "success": "Webmentions succesvol verzonden",
       "error": "Fout bij het verzenden van webmentions"
     },
+    "results": {
+      "title": "Recent Results",
+      "target": "Target",
+      "endpoint": "Endpoint",
+      "protocol": "Protocol",
+      "httpStatus": "HTTP Status",
+      "error": "Error",
+      "reason": "Reason",
+      "processed": "Processed",
+      "noDetails": "Detail data not available (processed before this update)",
+      "sentLabel": "sent",
+      "failedLabel": "failed",
+      "skippedLabel": "skipped"
+    },
     "help": {
       "title": "Hoe het werkt",
       "step1": "Wanneer je een bericht met externe links publiceert, wordt het toegevoegd aan de wachtrij",
