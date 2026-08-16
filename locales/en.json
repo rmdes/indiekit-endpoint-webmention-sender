@@ -10,6 +10,10 @@
       "title": "Sent",
       "description": "Posts that have had webmentions processed"
     },
+    "unreachable": {
+      "title": "Unreachable",
+      "description": "Posts abandoned after their page could not be fetched"
+    },
     "actions": {
       "send": "Send webmentions",
       "sendAll": "Process all pending"

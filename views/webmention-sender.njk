@@ -10,6 +10,14 @@
       <span class="summary__value">{{ sent }}</span>
       <span class="summary__label">{{ __("webmention-sender.sent.title") }}</span>
     </div>
+    {# Only shown once posts have been abandoned, so a stuck backlog becomes
+       visible without adding a permanently empty tile #}
+    {% if unreachable > 0 %}
+    <div class="summary__item">
+      <span class="summary__value">{{ unreachable }}</span>
+      <span class="summary__label">{{ __("webmention-sender.unreachable.title") }}</span>
+    </div>
+    {% endif %}
   </div>
 
   {{ prose({ text: __("webmention-sender.description") }) }}
