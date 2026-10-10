@@ -1,0 +1,63 @@
+# Installed into each @rmdes/* repo by setup-trusted-publishing.sh — edit the
+# template in indiekit-scripts/templates/, not the copies.
+#
+# Publishes to npm with trusted publishing (OIDC): no token, provenance is
+# automatic. npmjs.com must trust THIS filename (publish.yml) in this repo;
+# publish-all.sh creates that config just before it pushes the tag.
+name: Publish
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch: # re-run for a tag that already exists: gh workflow run publish.yml --ref vX.Y.Z
+
+permissions:
+  id-token: write # required for OIDC
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false # never cache in release builds
+
+      # OIDC publish needs npm >= 11.5.1, OIDC dist-tag >= 11.21.0.
+      - run: npm install -g npm@^11.21.0
+
+      # Not every plugin commits a lockfile, and `npm ci` requires one.
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install --no-audit --no-fund; fi
+
+      - run: npm test --if-present
+
+      # Tag rules (same as publish-all.sh always used):
+      #   stable              -> latest
+      #   prerelease          -> beta, unless `latest` is itself a prerelease,
+      #                          in which case it goes straight to latest.
+      - name: Publish
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          if [ "$GITHUB_REF_TYPE" = tag ] && [ "$GITHUB_REF_NAME" != "v$version" ]; then
+            echo "::error::tag $GITHUB_REF_NAME does not match package.json version $version"; exit 1
+          fi
+          if npm view "$name@$version" version >/dev/null 2>&1; then
+            echo "$name@$version is already on npm"; exit 0
+          fi
+          tag=latest
+          case "$version" in *-*)
+            case "$(npm view "$name" dist-tags.latest 2>/dev/null)" in *-*) ;; *) tag=beta ;; esac ;;
+          esac
+          npm publish --tag "$tag"
+          # Keep `beta` at the head too. Needs "Allow npm dist-tag" ticked on the
+          # package's trusted publisher (website only — `npm trust` can't set it).
+          if [ "$tag" = latest ] && [ "$version" != "${version%%-*}" ]; then
+            npm dist-tag add "$name@$version" beta || echo "::warning::beta tag not moved (dist-tag not allowed for this trusted publisher)"
+          fi
